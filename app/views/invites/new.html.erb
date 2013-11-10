@@ -1,0 +1,11 @@
+<center><div id="notice"><%= notice %></div>
+
+<h1>Create a new invite</h1>
+  Event: <%= @invite.event.name %> 
+<%= form_for @invite do |f| %>
+  <%= f.select :user_id, @users.collect {|user| [user.name, user.id]} %>
+  <%= f.hidden_field :event_id %>
+  <%= f.submit %> 
+<% end %>
+<%= button_to "BACK: List all events/guests", events_path, method: :get %> 
+</center>

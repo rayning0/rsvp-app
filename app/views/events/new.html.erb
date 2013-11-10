@@ -1,0 +1,9 @@
+<center>
+<h1>Create a new event</h1>
+<%= form_for @event do |e| %>
+  <%= e.label :name, 'Name' %>
+  <%= e.text_field :name %>
+  <%= e.submit %>
+<% end %>
+<%= button_to "BACK: List all events/guests", events_path, method: :get %> 
+</center>

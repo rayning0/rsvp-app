@@ -1,0 +1,12 @@
+<center><h1><%= @invite.event.name %> Invite</h1>
+<p>
+<%= @invite.user.name %> is 
+<% if @invite.rsvp == true %>
+  COMING!
+<% else %>
+  not coming
+<% end %>
+</p>
+<%= button_to "Edit Invites: RSVP", event_path(@invite.event), method: :get %>
+<%= button_to "BACK: List all events/guests", events_path, method: :get %> 
+</center>

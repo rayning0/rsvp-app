@@ -1,0 +1,18 @@
+<center><div id="notice"><%= notice %></div>
+<h1>Events</h1>
+<% @events.each do |event| %>
+  <%= link_to event.name, event_path(event) %> | <%= link_to "Invite Users", new_event_invite_path(event) %> | 
+  <%= link_to "Delete Event", event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+
+  <% event.users.sort.each do |user| %>
+    <%= user.name %> 
+    <% if user.invites.find_by(event_id: event.id).rsvp == true %>
+      COMING!
+    <% else %>
+      not coming
+    <% end %><br>
+  <% end %><br>
+<% end %>
+
+<%= button_to "Create a new event", new_event_path, class: "button", method: :get %>
+</center>

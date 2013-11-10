@@ -1,0 +1,15 @@
+<center><div id="notice"><%= notice %></div>
+
+<h1><%= @event.name %></h1>
+<% @event.invites.sort_by{|i| i.user_id}.each do |invite| %>
+
+  <%= form_for invite do |i| %>
+    <%= invite.user.name %> <%= label_tag(:rsvp, "Coming? ") %> 
+    <%= i.check_box(:rsvp)  %>
+    <%= i.submit %>
+  <% end %>
+
+<% end %>
+<%= button_to "Invite new person", new_event_invite_path(@event), method: :get %>
+<%= button_to "BACK: List all events/guests", events_path, method: :get %> 
+</center>

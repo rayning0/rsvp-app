@@ -1,0 +1,9 @@
+<center><h1>Edit Invite</h1>
+Event: <%= @invite.event.name %>
+<%= form_for @invite do |f| %>
+    <%= f.label :name, 'Name:' %> <%= @user.name %> | <%= label_tag(:rsvp, "I'm Coming:") %> 
+    <%= check_box_tag(:rsvp) %><br>
+  <%= f.submit %> 
+<% end %>
+<%= button_to "BACK: List all events/guests", events_path, method: :get %> 
+</center>
